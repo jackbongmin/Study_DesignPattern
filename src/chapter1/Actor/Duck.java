@@ -1,4 +1,4 @@
 package chapter1.Actor;
 
-public class Duck {
+public abstract class Duck {
 }

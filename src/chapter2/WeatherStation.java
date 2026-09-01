@@ -2,6 +2,7 @@ package chapter2;
 
 import chapter2.Actor.CurrentConditionsDisplay;
 import chapter2.Actor.ForecastDisplay;
+import chapter2.Actor.HeatIndexDisplay;
 import chapter2.Actor.StatisticsDisplay;
 import chapter2.Actor.WeatherData;
 
@@ -13,6 +14,7 @@ public class WeatherStation {
         CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
         StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
         ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
 
         System.out.println("=== 첫 번째 기상 데이터 업데이트 ===");
         weatherData.setMeasurements(80, 65, 30.4f);
@@ -20,7 +22,8 @@ public class WeatherStation {
         System.out.println("\n=== 두 번째 기상 데이터 업데이트 ===");
         weatherData.setMeasurements(82, 70, 29.2f);
 
-        System.out.println("\n=== 세 번째 기상 데이터 업데이트 ===");
+        System.out.println("\n=== 세 번째 기상 데이터 업데이트 (현재 상태 디스플레이 제거 후) ===");
+        weatherData.removeObserver(currentDisplay);
         weatherData.setMeasurements(78, 90, 29.2f);
     }
 }
